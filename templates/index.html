@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>MTA Status - Long Polling</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="{{ url_for("static", filename="index.js") }}"></script>
+        <link href="{{ url_for("static", filename="style.css") }}" rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div id="updated">UPDATED</div>
+        <div id="time"></div>
+        <div id="status"></div>
+    </body>
+</html>

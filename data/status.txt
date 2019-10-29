@@ -1,0 +1,14 @@
+{
+"1": "OK",
+"2": "Work scheduled",
+"3": "Weekend schedule",
+"4": "Delays",
+"5": "OK",
+"6": "Delays",
+"A": "OK",
+"B": "OK", 
+"S": "Delays",
+"J": "Delays",
+"Z": "OK"
+}
+
