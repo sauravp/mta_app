@@ -7,7 +7,7 @@
 "6": "Delays",
 "A": "OK",
 "B": "OK", 
-"S": "Delays",
+"S": "",
 "J": "Delays",
 "Z": "OK"
 }
