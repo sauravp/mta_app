@@ -147,8 +147,8 @@ if __name__ == '__main__':
 
     # start long polling
     app.config['updated'] = False
-    _poll_api_data()
-    # _poll_local_data()
+    # _poll_api_data()
+    _poll_local_data()
 
 
     # start server and web page pointing to it

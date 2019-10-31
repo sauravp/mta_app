@@ -21,6 +21,10 @@ class MTALine:
                     (datetime.datetime.now() -  self.last_downtime_start).total_seconds()
                 print("Line {} is now recovered".format(self.line_name))
             self.current_status = new_status
+        else:
+            if new_status == "delayed": # current status is also delayed
+                    self.total_downtime = self.total_downtime + \
+                    (datetime.datetime.now() -  self.last_downtime_start).total_seconds()
         return change
         
     
@@ -29,7 +33,7 @@ class MTALine:
         return "{:.2f}".format(1 - self.total_downtime/time_since_inception)
 
     def _cleanup_status(self, status):
-        if status.lower() == "delays":
+        if status.lower() in ["delays", "train delayed"]:
             return "delayed"
         else: 
             return "not delayed"
