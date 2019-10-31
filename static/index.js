@@ -1,11 +1,11 @@
 
 var prev_data = null;           // remember data fetched last time
 var waiting_for_update = false; // are we currently waiting?
-var LONG_POLL_DELAY = 5000; // how long should we wait? (msec)
+var LONG_POLL_TIMEOUT = 60000; // how long should we wait? (msec)
 
 
 /**
- * Load data from /data,
+ * load data from /data,
  */
 function load_data() {
     $.ajax({ url: '/data',
@@ -19,10 +19,7 @@ function load_data() {
 
 
 /**
- * Uses separate update notification and data providing URLs. Could be combined, but if
- * they're separated, the Python routine that provides data needn't be changed from
- * what's required for standard, non-long-polling web app. If they're combined, arguably
- * overloads the purpose of the function.
+ * wait for update, rerun on timeout
  */
 function wait_for_update() {
     if (!waiting_for_update) {
@@ -33,7 +30,7 @@ function wait_for_update() {
                     waiting_for_update = false;
                     wait_for_update(); // if the wait_for_update poll times out, rerun
                  },
-                 timeout:  LONG_POLL_DELAY,
+                 timeout:  LONG_POLL_TIMEOUT,
                });
     }
 }
