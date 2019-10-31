@@ -37,8 +37,8 @@ def index():
 
 @app.route('/data', methods=['GET'])
 def get_data():
-    # _poll_api_data()
-    _poll_local_data()
+    _poll_api_data()
+    # _poll_local_data()
 
     data = {}
     for mta_line in CURRENT_STATUS:
@@ -64,7 +64,7 @@ def get_uptime(line_name):
     if line_name.upper() not in SUPPORTED_LINES:
         return "Invalid line"
     else:
-        return CURRENT_STATUS[line_name.upper()].get_uptime()
+        return CURRENT_STATUS[line_name.upper()].percent_uptime
 
 
 @app.route("/updated")
@@ -147,8 +147,8 @@ if __name__ == '__main__':
 
     # start long polling
     app.config['updated'] = False
-    # _poll_api_data()
-    _poll_local_data()
+    _poll_api_data()
+    # _poll_local_data()
 
 
     # start server and web page pointing to it
